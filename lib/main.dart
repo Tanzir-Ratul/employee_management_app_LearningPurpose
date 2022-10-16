@@ -5,9 +5,17 @@ import 'package:employee_management_app/providers/employee_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+/*void main() {
   runApp(ChangeNotifierProvider(
       create: (context) => EmployeeProvider()..getEmployees(), child: const MyApp()));
+}*/
+void main() {
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create:(context) => EmployeeProvider()..getEmployees()),
+
+  ],
+  child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
